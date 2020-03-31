@@ -63,6 +63,10 @@ span {
 
 }
 
+.charts {
+	background-color: #f5f6fa;
+}
+
 /* .counters .container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
