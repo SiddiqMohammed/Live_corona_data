@@ -3,10 +3,12 @@ const speed = 80; // The lower the slower
 // const api_url = "https://pythondb-bfd79.firebaseio.com/"
 
 var i = 0;
-var test;
 var something = 0;
 text_list = ["'Mild'", "'Serious'", "'Recovered'", "'Deaths'", "'Active'", "'Closed'", "'Total'"];
-var element_List = ["'cas'", "'ded'", "'rec'", "'mild'", "'srs'", "'act'", "'clo'"];
+var element_List = ["mild", "srs", "rec", "ded", "act", "clo", "cas"];
+var value_List = [];
+// var pushValue = 0;
+// value_List.push("Second");
 
 var firebaseConfig = { 
 	apiKey: "AIzaSyAaYscy0rKtegr8YXF5Yg55CxBWV3fhukM",
@@ -23,47 +25,58 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-function goldenRetriever(){
+function goldenRetriever(i){
 	
 
 	var database = firebase.database();
 
 	var starCountRef = firebase.database().ref('/' + text_list[i]);
 	starCountRef.on('value', function(snapshot) {
-	updateStarCount(postElement, snapshot.val());
+	updateStarCount(postElement, snapshot.val(), pushValue, value_List, i);
+
 	});
 
-	var updateStarCount = function(element, value) {
-		something = value;
+	var updateStarCount = function(element, value, pushValue, value_List, i) {
 		element.textContent = value.toLocaleString();
-		// console.log(value)
-		// console.log(element_List[i]);
-		return something;
+		pushValue = value;
+		value_List[i] = value;
+		// console.log(value_List[i]);
+		return value_List;
 	};
 
-	console.log(element_List[i]);
-	var postElement = document.getElementById('cas');
+	var postElement = document.getElementById(element_List[i]);
+	var pushValue = 0;
 
+	// console.log(value_List[0]);
 
 
 }
 
 window.onload = function Start(){
-	for (i = 0; i < text_list.length; i++) {
 
-		test = element_List[0];
+	TestFunc();
+	setTimeout(SecondTest, 2000);
 
-		// console.log(test);
 
-		// more statements
-		goldenRetriever();
-	}
 }
 
-console.log("something:", something)
+console.log("something:", something);
 
+function SecondTest(){
+	// console.log(i);
+	console.log(value_List);
+	chartFunction(value_List);
 
-chartFunction();
+}
+function TestFunc(){
+	for (i = 0; i < text_list.length; i++) {
+
+		// more statements
+		goldenRetriever(i);
+		// console.log(value_List[0]);
+
+	}
+}
 
 
 // function myTimer() {
@@ -74,12 +87,11 @@ chartFunction();
 // 	}
 
 // } 
+console.log(element_List);
 
-
-function chartFunction(){
+function chartFunction(value_List){
 // Bar Graph
-	// console.log(something)
-
+	console.log(value_List[0])
 	var ctx = document.getElementById('myChart').getContext('2d');
 	var myChart = new Chart(ctx, {
 		type: 'pie',
