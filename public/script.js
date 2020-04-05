@@ -14,14 +14,7 @@ var percentRec2 = 0;
 
 
 var firebaseConfig = { 
-	apiKey: "AIzaSyAaYscy0rKtegr8YXF5Yg55CxBWV3fhukM",
-    authDomain: "pythondb-bfd79.firebaseapp.com",
-    databaseURL: "https://pythondb-bfd79.firebaseio.com",
-    projectId: "pythondb-bfd79",
-    storageBucket: "pythondb-bfd79.appspot.com",
-    messagingSenderId: "1062085483064",
-    appId: "1:1062085483064:web:73beca85cbdc18b9c564cd",
-    measurementId: "G-8895CT8MHZ"
+
 };
 
 // Initialize Firebase
