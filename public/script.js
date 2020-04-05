@@ -93,42 +93,45 @@ function TestFunc(){
 
 
 function chartFunction(value_List){
-
-	new Chart(document.getElementById("myChart"), {
-		type: 'pie',
-		data: {
-		labels: ['Mild Conditions', 'Critical Conditions', 'Recovered/Discharged', 'Deaths'],
-		datasets: [{
-			label: "Population (millions)",
-			backgroundColor: [
-				'rgba(110, 140, 206, 0.7)',
-				'rgba(200, 50, 97, 0.7)',
-				'rgba(34, 144, 76, 0.7)',
-				'rgba(255, 0, 0, 0.7)',
-			],
-			data: [value_List[0], value_List[1], value_List[2], value_List[3]]
-		}]
-		},
-		options: {
-		title: {
-			display: true,
-			text: 'Visualised Data of Total Cases',
-			fontSize: 25,
-			fontFamily: 'Roboto'
-		},
-		layout: {
-			padding: {
-				left: 0,
-				right: 0,
-				top: 10,
-				bottom: 15
+	if(value_List[0] > 0){
+		new Chart(document.getElementById("myChart"), {
+			type: 'pie',
+			data: {
+			labels: ['Mild Conditions', 'Critical Conditions', 'Recovered/Discharged', 'Deaths'],
+			datasets: [{
+				label: "Population (millions)",
+				backgroundColor: [
+					'rgba(110, 140, 206, 0.7)',
+					'rgba(200, 50, 97, 0.7)',
+					'rgba(34, 144, 76, 0.7)',
+					'rgba(255, 0, 0, 0.7)',
+				],
+				data: [value_List[0], value_List[1], value_List[2], value_List[3]]
+			}]
+			},
+			options: {
+			title: {
+				display: true,
+				text: 'Visualised Data of Total Cases',
+				fontSize: 25,
+				fontFamily: 'Roboto'
+			},
+			layout: {
+				padding: {
+					left: 0,
+					right: 0,
+					top: 10,
+					bottom: 15
+				}
+			},
+			legend: {
+				position: 'bottom'
 			}
-		},
-		legend: {
-			position: 'bottom'
-		}
-		}
-	});
+			}
+		});
+	}else {
+		setTimeout(chartFunction(value_List), 1000);
+	}
 }
 
 
@@ -188,7 +191,7 @@ function move2() {
 				elem2.style.width = width2 + "%";
 				elemded2.innerHTML = "Mild: " + width2  + "%";
 				var antiWidth2 = 100 - width2;
-				elemRec2.innerHTML = "Critical Condition: " + antiWidth2 + "%";
+				elemRec2.innerHTML = "Critical:  " + antiWidth2 + "%";
 
 				}
 			}
