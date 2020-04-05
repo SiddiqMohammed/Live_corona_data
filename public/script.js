@@ -7,8 +7,11 @@ var something = 0;
 text_list = ["'Mild'", "'Serious'", "'Recovered'", "'Deaths'", "'Active'", "'Closed'", "'Total'"];
 var element_List = ["mild", "srs", "rec", "ded", "act", "clo", "cas"];
 var value_List = [];
-// var pushValue = 0;
-// value_List.push("Second");
+var counter = 0;
+var percentRec = 0;
+var counter2 = 0;
+var percentRec2 = 0;
+
 
 var firebaseConfig = { 
 	apiKey: "AIzaSyAaYscy0rKtegr8YXF5Yg55CxBWV3fhukM",
@@ -55,7 +58,7 @@ function goldenRetriever(i){
 window.onload = function Start(){
 
 	TestFunc();
-	setTimeout(SecondTest, 2000);
+	setTimeout(SecondTest, 3000);
 
 
 }
@@ -66,14 +69,13 @@ function SecondTest(){
 	// console.log(i);
 	console.log(value_List);
 	chartFunction(value_List);
-
+	move();
+	move2();
 }
 function TestFunc(){
 	for (i = 0; i < text_list.length; i++) {
 
-		// more statements
 		goldenRetriever(i);
-		// console.log(value_List[0]);
 
 	}
 }
@@ -89,47 +91,112 @@ function TestFunc(){
 // } 
 console.log(element_List);
 
+
 function chartFunction(value_List){
-// Bar Graph
-	console.log(value_List[0])
-	var ctx = document.getElementById('myChart').getContext('2d');
-	var myChart = new Chart(ctx, {
+
+	new Chart(document.getElementById("myChart"), {
 		type: 'pie',
 		data: {
-			labels: ['Mild Conditions', 'Critical Conditions', 'Recovered/Discharged', 'Deaths'],
-			datasets: [{
-				label: '# of Votes',
-				data: [1, 1, 1, 1],
-				backgroundColor: [
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(255, 99, 132, 0.2)',
-
-				],
-				borderColor: [
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(255, 99, 132, 1)',
-	
-				],
-				borderWidth: 1
-			}]
+		labels: ['Mild Conditions', 'Critical Conditions', 'Recovered/Discharged', 'Deaths'],
+		datasets: [{
+			label: "Population (millions)",
+			backgroundColor: [
+				'rgba(110, 140, 206, 0.7)',
+				'rgba(200, 50, 97, 0.7)',
+				'rgba(34, 144, 76, 0.7)',
+				'rgba(255, 0, 0, 0.7)',
+			],
+			data: [value_List[0], value_List[1], value_List[2], value_List[3]]
+		}]
 		},
 		options: {
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: true
-					}
-				}]
+		title: {
+			display: true,
+			text: 'Visualised Data of Total Cases',
+			fontSize: 25,
+			fontFamily: 'Roboto'
+		},
+		layout: {
+			padding: {
+				left: 0,
+				right: 0,
+				top: 10,
+				bottom: 15
 			}
+		},
+		legend: {
+			position: 'bottom'
+		}
 		}
 	});
 }
 
 
+
+function move() {
+	percentRec = 100*(value_List[2]/value_List[5]);
+	if(percentRec > 0){
+		// console.log(percentRec.toFixed())
+		if (counter == 0) {
+			counter = 1;
+			
+			var elemded = document.getElementById("left-align1");
+			var elem = document.getElementById("changer");
+			var elemRec = document.getElementById("right-align1");
+			var width = 30;
+			
+			var id = setInterval(frame, 30);
+			function frame() {
+				if (width >= percentRec) {
+				clearInterval(id);
+				counter = 0;
+				} else {
+				width++;
+				elem.style.width = width + "%";
+				elemded.innerHTML = "Recovered: " + width  + "%";
+				var antiWidth = 100 - width;
+				elemRec.innerHTML = "Deaths: " + antiWidth + "%";
+
+				}
+			}
+		}
+	}else {
+		setTimeout(move(), 5000);
+	}
+} 
+
+
+function move2() {
+	percentRec2 = 100*(value_List[0]/value_List[4]);
+	if(percentRec2 > 0){
+		// console.log(percentRec.toFixed())
+		if (counter2 == 0) {
+			counter2 = 1;
+			
+			var elemded2 = document.getElementById("left-align2");
+			var elem2 = document.getElementById("changer2");
+			var elemRec2 = document.getElementById("right-align2");
+			var width2 = 10;
+			
+			var id2 = setInterval(frame2, 30);
+			function frame2() {
+				if (width2 >= percentRec2) {
+				clearInterval(id2);
+				counter2 = 0;
+				} else {
+				width2++;
+				elem2.style.width = width2 + "%";
+				elemded2.innerHTML = "Mild Condition: " + width2  + "%";
+				var antiWidth2 = 100 - width2;
+				elemRec2.innerHTML = "Critical Condition: " + antiWidth2 + "%";
+
+				}
+			}
+		}
+	}else {
+		setTimeout(move(), 5000);
+	}
+} 
 // var x = 0;
 // var ID_of_element = "";
 
