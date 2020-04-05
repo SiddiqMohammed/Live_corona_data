@@ -8,30 +8,38 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	/* background: 
-		 url('https://miro.medium.com/max/7680/1*FGgs-uyJGzFwh6zSts1CBw.png'); */
 	color: orange;
-	/* Push to bottom */
-	/* display: flex; */
-	/* flex-direction: column; */
-	/* justify-content: flex-start; */
 	height: 100vh;
-	background-color: #1A1E22;
 }
 
-.container {
+.container2 {
 	max-width: 1100px;
 	margin: 0 auto;
 	overflow: auto;
 }
 
+.FirstSection {
+	margin-bottom: -15vh;
+	background: #1A1E22;
+}
+
+.cardss {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.cardss2 {
+	background-color: rgba(255, 255, 255, 1);
+	
+}
+
 header {
 	flex: 1;
-	height: 50%;
+	height: 45%;
 	display: flex;
 	align-items: center;
     justify-content: center;
-    flex-direction: column;
+	flex-direction: column;
+	background-color: #1A1E22;
 }
 
 #images_display {
@@ -40,8 +48,8 @@ header {
 
 #img1 {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0vh;
+    top: 0vh;
 }
 
 
@@ -56,34 +64,132 @@ span {
 
 .counters {
 	/* background: #0f479a; */
-	color: #fff;
-	/* padding: 40px 20px; */
-	border-bottom: 3px grey solid;
+	/* color: rgb(199, 0, 0); */
+	padding: 0vh 1.5vh 15vh 1.2vh;
+	border-bottom: 0.45vh grey solid;
 	align-items: center;
-
 }
 
 .charts {
 	background-color: #f5f6fa;
 }
 
-/* .counters .container {
+#myProgress {
+	border-radius: 1.5vh;
+	width: 100%;
+	background-color: red;
+	line-height: 4.5vh; /* To center it vertically */
+  }
+  
+#myBar {
+	width: 50%;
+	height: 7.5vh;
+	padding-left: 1.5vh;
+	background-color: #4CAF50;
+	color: white;
+}
+
+
+
+#progressbar {
+	margin: 6vh 3vh 0vh 3vh;
+	background-color: red;
+	border-radius: 1.9vh;
+	padding: 0vh;
+}
+
+#changer {
+	background-color: #4CAF50;
+	width: 30%;
+	height: 3vh;
+	border-radius: 1.5vh;
+}
+
+#left-align1 {
+	padding: 1.5vh 0 0 2.25vh;
+
+	line-height: 7.5vh; /* To center it vertically */
+	float: left;
+	margin-left: 1.5vh;
+	color: rgb(0, 0, 0);
+}
+
+#right-align1 {
+	padding: 1.5vh 2.25vh 0 0;
+
+	line-height: 7.5vh;
+	color: rgb(0, 0, 0);
+	float: right;
+	margin-right: 1.5vh;
+}
+
+#cardTitle {
+	padding: 7.5vh 0vh 0vh 0vh;
+	font-size: 3.76vh;
+	color: rgb(102, 102, 102);
+	font-weight: bold;
+	text-align: center;
+}
+
+.percentages {
+	padding-bottom: 6.77vh;
+}
+
+#progressbar2 {
+	margin: 6vh 3vh 0vh 3vh;
+
+	background-color: red;
+	border-radius: 1.95vh;
+	padding: 0vh;
+}
+
+#changer2 {
+	background-color: #4CAF50;
+	width: 10%;
+	height: 3vh;
+	border-radius: 1.5vh;
+}
+
+#left-align2 {
+	padding: 1.5vh 0 0 2.25vh;
+
+	line-height: 7.5vh;
+	float: left;
+	margin-left: 1.5vh;
+	color: rgb(0, 0, 0);
+}
+
+#right-align2 {
+	padding: 1.5vh 2.25vh 0 0;
+
+	line-height: 7.5vh;
+	color: rgb(0, 0, 0);
+	float: right;
+	margin-right: 1.5vh;
+}
+
+.colorCard {
+	background-color: rgba(245, 246, 250, 1);
+	
+}
+
+/* .cardss2 {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 30px;
 	text-align: center;
-} */
+} 
+ */
 
-
-
-/* @media (max-width: 700px) {
-	.counters .container {
+/* 
+@media (max-width: 700px) {
+	.cardss2 {
 		grid-template-columns: repeat(1, 1fr);
 	}
 
-	.counters .container > div:nth-of-type(1),
-	.counters .container > div:nth-of-type(2) {
+	.cardss2 > div:nth-of-type(1),
+	.cardss2 > div:nth-of-type(2) {
 		border-bottom: 1px lightskyblue solid;
-		padding-bottom: 20px;
+		padding-bottom: 3vh;
 	}
 } */
