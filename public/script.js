@@ -63,11 +63,11 @@ window.onload = function Start(){
 
 }
 
-console.log("something:", something);
+// console.log("something:", something);
 
 function SecondTest(){
 	// console.log(i);
-	console.log(value_List);
+	// console.log(value_List);
 	chartFunction(value_List);
 	move();
 	move2();
@@ -89,7 +89,7 @@ function TestFunc(){
 // 	}
 
 // } 
-console.log(element_List);
+// console.log(element_List);
 
 
 function chartFunction(value_List){
