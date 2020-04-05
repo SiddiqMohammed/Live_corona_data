@@ -14,7 +14,14 @@ var percentRec2 = 0;
 
 
 var firebaseConfig = { 
-
+	apiKey: "AIzaSyAaYscy0rKtegr8YXF5Yg55CxBWV3fhukM",
+    authDomain: "pythondb-bfd79.firebaseapp.com",
+    databaseURL: "https://pythondb-bfd79.firebaseio.com",
+    projectId: "pythondb-bfd79",
+    storageBucket: "pythondb-bfd79.appspot.com",
+    messagingSenderId: "1062085483064",
+    appId: "1:1062085483064:web:73beca85cbdc18b9c564cd",
+    measurementId: "G-8895CT8MHZ"
 };
 
 // Initialize Firebase
@@ -179,7 +186,7 @@ function move2() {
 				} else {
 				width2++;
 				elem2.style.width = width2 + "%";
-				elemded2.innerHTML = "Mild Condition: " + width2  + "%";
+				elemded2.innerHTML = "Mild: " + width2  + "%";
 				var antiWidth2 = 100 - width2;
 				elemRec2.innerHTML = "Critical Condition: " + antiWidth2 + "%";
 
@@ -230,3 +237,35 @@ function move2() {
 
 // 	updateCount();
 // });
+
+
+// var bar = new ProgressBar.Line(container, {
+// 	strokeWidth: 4,
+// 	easing: 'easeInOut',
+// 	duration: 1400,
+// 	color: '#FFEA82',
+// 	trailColor: '#eee',
+// 	trailWidth: 1,
+// 	svgStyle: {width: '100%', height: '100%'},
+// 	text: {
+// 	  style: {
+// 		// Text color.
+// 		// Default: same as stroke color (options.color)
+// 		color: '#222',
+// 		position: 'absolute',
+// 		right: '0',
+// 		top: '30px',
+// 		padding: 0,
+// 		margin: 0,
+// 		transform: null
+// 	  },
+// 	  autoStyleContainer: false
+// 	},
+// 	from: {color: '#FFEA82'},
+// 	to: {color: '#ED6A5A'},
+// 	step: (state, bar) => {
+// 	  bar.setText(Math.round(bar.value() * 100) + ' %');
+// 	}
+//   });
+  
+//   bar.animate(0.2);  // Number from 0.0 to 1.0
