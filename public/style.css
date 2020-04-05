@@ -58,6 +58,12 @@ header {
     animation: heartBeat 1s;
 }
 
+.tee2:hover {
+    -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+}
+
+
 span {
 	font-size: large;
 }
@@ -134,7 +140,6 @@ span {
 
 #left-align2 {
 	padding: .5vh 0 0 2.25vh;
-
 	float: left;
 	margin-left: 1.5vh;
 	color: rgb(0, 0, 0);
@@ -159,14 +164,47 @@ span {
 	/* font-size: 2vw; */
 }
 
+
+.footer {
+	padding: 0.5rem 2rem;
+	text-align: center;
+	background: rgb(255, 255, 255);
+	font-size: 1vw;
+	font-weight: 500;
+	color: rgb(106, 115, 125);
+}
+
+.footer a{
+	font-size: 1vw;
+	padding: 0rem 0.2rem;
+	font-weight: 500;
+	color: rgb(0, 112, 243);	
+}
+
+a{
+	color: white;
+	text-decoration: none;
+
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+
 @media screen and (min-width: 601px) {
 	div.textStyleCard {
 	  font-size: 80px;
 	}
-  }
+}
   
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 	div.textStyleCard {
-	  font-size: 30px;
+		font-size: 30px;
 	}
-  }
+}
