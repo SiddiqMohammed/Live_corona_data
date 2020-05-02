@@ -8,15 +8,18 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	color: orange;
+	color: white;
 	height: 100vh;
 }
 
-/* .container2 {
-	max-width: 1100px;
-	margin: 0 auto;
-	overflow: auto;
-} */
+.about-card {
+	letter-spacing: normal;
+	color: white;
+}
+
+.about-card a {
+	color: blue;
+}
 
 .FirstSection {
 	margin-bottom: -15vh;

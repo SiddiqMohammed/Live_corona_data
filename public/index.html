@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -38,13 +39,50 @@
 				</a>
 			</div>
 		</div>
+		<div class="w3-display-topleft">
+			<div class="image_display">
+				<button onclick="document.getElementById('id01').style.display='block'"
+					class="w3-button w3-round-xlarge"><h1>ⓘ</h1>
+				</button>
+
+				<div id="id01" class="w3-modal">
+					<div class="w3-modal-content">
+						<div class="w3-container py-3 about-card" style="color: black;">
+							<span onclick="document.getElementById('id01').style.display='none'"
+								class="w3-button w3-display-topright">&times;</span>
+							<p> This website is a project powered by a single person. </p>
+							<p>
+								The aim of this project is to have the important data be easily viewable and more
+								importantly it be visualised for clearer understanding.</p>
+
+							<p> The project was inspired by the Coronavirus Outbreak Map by John Hopkins University.</p>
+							<p> You can check out my github <a href="https://github.com/siddiqmohammed"> page here.</a>
+							</p>
+							<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_donations" />
+								<input type="hidden" name="business" value="msm2029@gmail.com" />
+								<input type="hidden" name="currency_code" value="USD" />
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"
+									name="submit" title="PayPal - The safer, easier way to pay online!"
+									alt="Donate with PayPal button" />
+								<img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+							</form>
+
+						</div>
+					</div>
+				</div>
+				</a>
+			</div>
+		</div>
 		<!-- <div class="tee2"> -->
 		<div class="w3-display-middle w3-margin-top w3-center">
-			<h1 class="w3-xxlarge w3-text-white tee2"><a href="https://github.com/siddiqmohammed"><span class="w3-padding w3-black w3-opacity-min"><b>Coronavirus Cases
-						Worldwide</b></span> <span class="w3-small w3-text-light-grey">  website made by Siddiq</span></a>
+			<h1 class="w3-xxlarge w3-text-white tee2"><a href="https://github.com/siddiqmohammed"><span
+						class="w3-padding w3-black w3-opacity-min"><b>Coronavirus Cases
+							Worldwide</b></span> <span class="w3-small w3-text-light-grey"> website made by
+						Siddiq</span></a>
 			</h1>
 		</div>
-	<!-- </div> -->
+		<!-- </div> -->
 	</header>
 	<div class="FirstSection">
 		<section class="counters">
@@ -189,7 +227,7 @@
 				<a href="https://getbootstrap.com/">Bootstrap</a>
 				·
 				<a href="https://github.com/daneden/animate.css">Animate.css</a>
-				·  and more!</div>
+				· and more!</div>
 		</div>
 	</div>
 
