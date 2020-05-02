@@ -4,7 +4,7 @@ const speed = 80; // The lower the slower
 
 var i = 0;
 var something = 0;
-text_list = ["'Mild'", "'Serious'", "'Recovered'", "'Deaths'", "'Active'", "'Closed'", "'Total'"];
+text_list = ["Mild", "Serious", "Recovered", "Deaths", "Active", "Closed", "Total"];
 var element_List = ["mild", "srs", "rec", "ded", "act", "clo", "cas"];
 var value_List = [];
 var counter = 0;
@@ -26,41 +26,63 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+const db = firebase.firestore();
 
 function goldenRetriever(i){
 	
 
-	var database = firebase.database();
+	// var database = firebase.database();
 
-	var starCountRef = firebase.database().ref('/' + text_list[i]);
-	starCountRef.on('value', function(snapshot) {
-	updateStarCount(postElement, snapshot.val(), pushValue, value_List, i);
-
+	db.collection('data').get().then(snapshot => {
+		snapshot.docs.forEach(doc => {
+			console.log(doc.data());
+			renderVal(doc);
+		});
 	});
 
-	var updateStarCount = function(element, value, pushValue, value_List, i) {
-		element.textContent = value.toLocaleString();
-		pushValue = value;
-		value_List[i] = value;
-		// console.log(value_List[i]);
-		return value_List;
-	};
+	function renderVal(doc){
+		postElement = document.getElementById(element_List[0]);
+		var rekt = doc.data().Mild;
+		value_List[0] = rekt;
+		postElement.textContent = rekt.toLocaleString();
 
-	var postElement = document.getElementById(element_List[i]);
-	var pushValue = 0;
+		postElement = document.getElementById(element_List[1]);
+		rekt = doc.data().Serious;
+		value_List[1] = rekt;
+		postElement.textContent = rekt.toLocaleString();
 
-	// console.log(value_List[0]);
+		postElement = document.getElementById(element_List[2]);
+		rekt = doc.data().Recovered;
+		value_List[2] = rekt;
+		postElement.textContent = rekt.toLocaleString();
+
+		postElement = document.getElementById(element_List[3]);
+		rekt = doc.data().Deaths;
+		value_List[3] = rekt;
+		postElement.textContent = rekt.toLocaleString();
+
+		postElement = document.getElementById(element_List[4]);
+		rekt = doc.data().Active;
+		value_List[4] = rekt;
+		postElement.textContent = rekt.toLocaleString();
+
+		postElement = document.getElementById(element_List[5]);
+		rekt = doc.data().Closed;
+		value_List[5] = rekt;
+		postElement.textContent = rekt.toLocaleString();
+
+		postElement = document.getElementById(element_List[6]);
+		rekt = doc.data().Total;
+		value_List[6] = rekt;
+		postElement.textContent = rekt.toLocaleString();
+		SecondTest();
+	}
 
 
 }
 
 window.onload = function Start(){
-
 	TestFunc();
-	setTimeout(SecondTest, 3000);
-
-
 }
 
 // console.log("something:", something);
@@ -73,11 +95,11 @@ function SecondTest(){
 	move2();
 }
 function TestFunc(){
-	for (i = 0; i < text_list.length; i++) {
+	// for (i = 0; i < text_list.length; i++) {
 
-		goldenRetriever(i);
+		goldenRetriever();
 
-	}
+	// }
 }
 
 
@@ -129,9 +151,10 @@ function chartFunction(value_List){
 			}
 			}
 		});
-	}else {
-		setTimeout(chartFunction(value_List), 1000);
 	}
+	// else {
+	// 	// setTimeout(chartFunction(value_List), 60000);
+	// }
 }
 
 
@@ -164,7 +187,7 @@ function move() {
 			}
 		}
 	}else {
-		setTimeout(move(), 5000);
+		// setTimeout(move(), 5000);
 	}
 } 
 
@@ -197,7 +220,7 @@ function move2() {
 			}
 		}
 	}else {
-		setTimeout(move(), 5000);
+		// setTimeout(move(), 5000);
 	}
 } 
 // var x = 0;
