@@ -211,3 +211,7 @@ a{
 		font-size: 30px;
 	}
 }
+
+#world-map {
+	margin: auto;
+}
