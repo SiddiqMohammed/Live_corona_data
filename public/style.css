@@ -8,10 +8,13 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	color: white;
+	/* color: white; */
 	height: 100vh;
 }
 
+.image_display {
+	color: white;
+}
 .about-card {
 	letter-spacing: normal;
 	color: white;
@@ -214,4 +217,12 @@ a{
 
 #world-map {
 	margin: auto;
+}
+
+#map-title span{
+	color: black;
+}
+
+#zz {
+	z-index: 10;
 }
