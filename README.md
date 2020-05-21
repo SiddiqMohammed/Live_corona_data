@@ -1,5 +1,7 @@
 # Live corona data
 
+Website Showing the live statistics of the CoronaVirus
+https://covid19-visual.web.app/
 
 The aim of this website is to show the current data regarding COVID-19.  In addition to that, it also represents the values visually so that with just a glance a person would be able to get a picture of the current situation.
 
