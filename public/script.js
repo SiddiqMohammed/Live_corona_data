@@ -3,8 +3,6 @@ const speed = 80; // The lower the slower
 
 var i = 0;
 var something = 0;
-// text_list = ["Mild", "Serious", "Recovered", "Deaths", "Active", "Closed", "Total"];
-// var element_List = ["mild", "srs", "rec", "ded", "act", "clo", "cas"];
 var element_List = ["act", "clo", "ded", "mild", "rec", "srs", "cas"];
 var value_List = [];
 var counter = 0;
@@ -14,8 +12,6 @@ var percentRec2 = 0;
 var rekt = 0;
 var test_array = [];
 var test_array2 = [];
-var afg = "Afghanistan";
-
 
 
 // Initialize Firebase
@@ -23,22 +19,17 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 function goldenRetriever() {
-
-
-
 	db.collection("data").doc("mm")
 		.onSnapshot(function (doc) {
 			test_array = doc.data();
 			fora(test_array);
 		});
-
-
+	
 	function fora(test_array) {
 		var result = [];
 
 		for (var i in test_array)
 			result.push([i, test_array[i]]);
-
 
 		var myObj = {};
 		for (var i = 0; i < result.length; i++) {
@@ -49,8 +40,6 @@ function goldenRetriever() {
 
 		showMap(myObj);
 	}
-
-
 
 	db.collection("data").doc("lgtq2xqlRv40YirvlJ8n")
 		.onSnapshot(function (doca) {
@@ -64,9 +53,7 @@ function goldenRetriever() {
 		for (var i in test_array2)
 			result2.push([test_array2[i]]);
 
-
 		for (var i = 0; i < element_List.length; i++) {
-
 			postElement = document.getElementById(element_List[i]);
 			console.log(value_List[i])
 			rekt = result2[i];
@@ -75,14 +62,11 @@ function goldenRetriever() {
 		}
 		SecondTest();
 	}
-
-
 }
 
 window.onload = function Start() {
 	TestFunc();
 }
-
 
 function SecondTest() {
 	chartFunction(value_List);
@@ -92,18 +76,6 @@ function SecondTest() {
 function TestFunc() {
 	goldenRetriever();
 }
-
-
-// function myTimer() {
-// 	getData();
-// 	if( flag == 1){
-// 		chartFunction();
-
-// 	}
-
-// } 
-// console.log(element_List);
-
 
 function chartFunction(value_List) {
 	if (value_List[0] > 0) {
@@ -143,12 +115,7 @@ function chartFunction(value_List) {
 			}
 		});
 	}
-	// else {
-	// 	// setTimeout(chartFunction(value_List), 60000);
-	// }
 }
-
-
 
 function move() {
 	percentRec = 100 * (value_List[4] / value_List[1]);
@@ -175,7 +142,6 @@ function move() {
 					elemded.innerHTML = "Recovered: " + width + "%";
 					var antiWidth = 100 - width;
 					elemRec.innerHTML = "Deaths: " + antiWidth + "%";
-
 				}
 			}
 		}
@@ -218,7 +184,6 @@ function move2() {
 	}
 }
 
-
 function showMap(myObj) {
 
 	$('#world-map').vectorMap({
@@ -238,75 +203,3 @@ function showMap(myObj) {
 		}
 	});
 }
-// var x = 0;
-// var ID_of_element = "";
-
-// counters.forEach(counter => {
-// 	const updateCount = () => {
-// 		if(x == 0){
-// 			ID_of_element = cas;
-// 		}
-// 		else if(x == 1){
-// 			ID_of_element = ded;
-// 		}
-// 		else{
-// 			ID_of_element = rec;
-// 		}
-// 		const target = +counter.getElementById(ID_of_element);
-// 		const count = +counter.innerText;
-
-// 		// Lower inc to slow and higher to slow
-// 		const inc = target / speed;
-
-// 		// console.log(inc);
-// 		// console.log(count);
-
-// 		// Check if target is reached
-// 		if (count < target) {
-// 			// Add inc to count and output in counter
-// 			counter.innerText = Math.ceil(count + inc);
-// 			// Call function every ms
-// 			setTimeout(updateCount, 1);
-// 		} else {
-// 			counter.innerText = target;
-// 		}
-// 		x++
-// 		if(x == 3){
-// 			x = 0;
-// 		}
-// 	};
-
-// 	updateCount();
-// });
-
-
-// var bar = new ProgressBar.Line(container, {
-// 	strokeWidth: 4,
-// 	easing: 'easeInOut',
-// 	duration: 1400,
-// 	color: '#FFEA82',
-// 	trailColor: '#eee',
-// 	trailWidth: 1,
-// 	svgStyle: {width: '100%', height: '100%'},
-// 	text: {
-// 	  style: {
-// 		// Text color.
-// 		// Default: same as stroke color (options.color)
-// 		color: '#222',
-// 		position: 'absolute',
-// 		right: '0',
-// 		top: '30px',
-// 		padding: 0,
-// 		margin: 0,
-// 		transform: null
-// 	  },
-// 	  autoStyleContainer: false
-// 	},
-// 	from: {color: '#FFEA82'},
-// 	to: {color: '#ED6A5A'},
-// 	step: (state, bar) => {
-// 	  bar.setText(Math.round(bar.value() * 100) + ' %');
-// 	}
-//   });
-
-//   bar.animate(0.2);  // Number from 0.0 to 1.0
