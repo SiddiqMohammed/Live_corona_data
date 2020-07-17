@@ -8,7 +8,6 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	/* color: white; */
 	height: 100vh;
 }
 
@@ -85,15 +84,6 @@ span {
 }
 
 
-
-
-
-
-
-
-
-
-
 .percentages {
 	padding-bottom: 10vh;
 }
@@ -165,11 +155,16 @@ span {
 
 
 .textStyleCard{
-	margin: 10vh;
+	margin: 5vw;
+	font-size: 5vw;
 	color: black;
-	/* font-size: 2vw; */
 }
 
+.textStyleCard2{
+	/* margin: 5vw; */
+	font-size: 4vw;
+	color: black;
+}
 
 .footer {
 	padding: 0.5rem 2rem;
